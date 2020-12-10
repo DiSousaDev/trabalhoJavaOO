@@ -62,5 +62,10 @@ public abstract class Funcionario implements ImpostoDeRenda {
         empresa = null;
     }
 
-    public abstract double salario();
+    public abstract double calcularSalario();
+
+    @Override
+    public String toString(){
+        return "Funcionario: " + nome + "\nCpf: " + cpf + "\nIdade: " + idade + "Contratado: " + contratado + "\nEmpresa=" + empresa;
+    }
 }

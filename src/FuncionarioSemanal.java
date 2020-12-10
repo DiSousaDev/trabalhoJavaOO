@@ -19,12 +19,17 @@ public class FuncionarioSemanal extends Funcionario {
     }
 
     @Override
-    public double salario(){
+    public double calcularSalario(){
         return 0;
     }
 
     @Override
     public double calcularImposto(){
         return 0;
+    }
+
+    @Override
+    public String toString(){
+        return "Funcionario Semanal: " + super.toString() + "\nSalario por semana: " + getSalarioSemanal();
     }
 }

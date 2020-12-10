@@ -19,12 +19,17 @@ public class FuncionarioSalarioBaseComissao extends FuncionarioComissionado {
     }
 
     @Override
-    public double salario(){
+    public double calcularSalario(){
         return 0;
     }
 
     @Override
     public double calcularImposto(){
         return 0;
+    }
+
+    @Override
+    public String toString(){
+        return "Funcionario Salario e Comissao: " + super.toString() + "Salario Base:" + salarioBase;
     }
 }

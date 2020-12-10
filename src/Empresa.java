@@ -39,4 +39,9 @@ public class Empresa {
     public void registraFuncionario(Funcionario funcionario) {
         funcionarios.add(funcionario);
     }
+
+    @Override
+    public String toString(){
+        return "Cnpj" + cnpj + "\nNome=" + nome + "\nFuncionarios" + getFuncionarios();
+    }
 }

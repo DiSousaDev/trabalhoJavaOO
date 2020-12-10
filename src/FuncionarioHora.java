@@ -29,7 +29,7 @@ public class FuncionarioHora extends Funcionario {
     }
 
     @Override
-    public double salario(){
+    public double calcularSalario(){
         return 0;
     }
 
@@ -37,4 +37,10 @@ public class FuncionarioHora extends Funcionario {
     public double calcularImposto(){
         return 0;
     }
+
+    @Override
+    public String toString(){
+        return "Funcionario Por Hora: " + super.toString() + "\nValor por Hora: " + getValorHora() + "Horas Trabalhadas: " + getHorasTrabalhadas() + " Salário total: " + calcularSalario();
+    }
+
 }
