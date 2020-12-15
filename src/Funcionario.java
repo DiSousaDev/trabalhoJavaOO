@@ -63,7 +63,8 @@ public abstract class Funcionario implements ImpostoDeRenda {
         }
     }
 
-    public String verificaImposto(){
+    //metodo nao podera ser sobrescrito
+    public final String verificaImposto(){
         if(calcularSalario() > SALARIO_IMPOSTO) {
             return "Este funcionário deverá pagar: R$" + String.format("%.2f", calcularImposto()) + " de imposto.";
         }
