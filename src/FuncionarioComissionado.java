@@ -6,8 +6,8 @@ public class FuncionarioComissionado extends Funcionario {
     public FuncionarioComissionado(){
     }
 
-    public FuncionarioComissionado(String cpf, String nome, int idade, boolean contratado, double totalVendasSemanal, double comissao){
-        super(cpf, nome, idade, contratado);
+    public FuncionarioComissionado(String cpf, String nome, int idade, double totalVendasSemanal, double comissao){
+        super(cpf, nome, idade);
         this.totalVendasSemanal = totalVendasSemanal;
         this.comissao = comissao;
     }
@@ -30,16 +30,16 @@ public class FuncionarioComissionado extends Funcionario {
 
     @Override
     public double calcularSalario(){
-        return 0;
+        return totalVendasSemanal * comissao;
     }
 
     @Override
     public double calcularImposto(){
-        return 0;
+        return calcularSalario() * TAXA;
     }
 
     @Override
     public String toString(){
-        return "Funcionario Por Comissão: " + super.toString() + "\nTotal Vendas Semanal: " + getTotalVendasSemanal() + "Porcentagem Comissão: " + getComissao() + " Salário total: " + calcularSalario();
+        return "Funcionario Por Comissão: " + super.toString() + "\nTotal Vendas Semanal R$: " + String.format("%.2f", getTotalVendasSemanal()) + " Porcentagem Comissão: " + getComissao() + "%";
     }
 }

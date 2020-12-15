@@ -6,8 +6,8 @@ public class FuncionarioHora extends Funcionario {
     public FuncionarioHora(){
     }
 
-    public FuncionarioHora(String cpf, String nome, int idade, boolean contratado, double valorHora, double horasTrabalhadas){
-        super(cpf, nome, idade, contratado);
+    public FuncionarioHora(String cpf, String nome, int idade, double valorHora, double horasTrabalhadas){
+        super(cpf, nome, idade);
         this.valorHora = valorHora;
         this.horasTrabalhadas = horasTrabalhadas;
     }
@@ -30,17 +30,17 @@ public class FuncionarioHora extends Funcionario {
 
     @Override
     public double calcularSalario(){
-        return 0;
+        return valorHora * horasTrabalhadas;
     }
 
     @Override
     public double calcularImposto(){
-        return 0;
+        return calcularSalario() * TAXA;
     }
 
     @Override
     public String toString(){
-        return "Funcionario Por Hora: " + super.toString() + "\nValor por Hora: " + getValorHora() + "Horas Trabalhadas: " + getHorasTrabalhadas() + " Salário total: " + calcularSalario();
+        return "Funcionario Por Hora: " + super.toString() + "\nValor por Hora: R$" + String.format("%.2f", getValorHora()) + " Horas Trabalhadas: " + getHorasTrabalhadas() + " horas";
     }
 
 }

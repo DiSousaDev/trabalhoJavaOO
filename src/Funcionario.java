@@ -1,20 +1,21 @@
 public abstract class Funcionario implements ImpostoDeRenda {
 
+    protected static final double SALARIO_IMPOSTO = 600;
+    protected static final double TAXA = 0.1;
+
     protected String cpf;
     protected String nome;
     protected int idade;
-    protected boolean contratado;
 
     protected Empresa empresa;
 
     public Funcionario(){
     }
 
-    public Funcionario(String cpf, String nome, int idade, boolean contratado){
+    public Funcionario(String cpf, String nome, int idade){
         this.cpf = cpf;
         this.nome = nome;
         this.idade = idade;
-        this.contratado = contratado;
     }
 
     public String getCpf(){
@@ -42,11 +43,7 @@ public abstract class Funcionario implements ImpostoDeRenda {
     }
 
     public boolean isContratado(){
-        return contratado;
-    }
-
-    public void setContratado(boolean contratado){
-        this.contratado = contratado;
+        return empresa != null;
     }
 
     public Empresa getEmpresa(){
@@ -57,15 +54,26 @@ public abstract class Funcionario implements ImpostoDeRenda {
         this.empresa = empresa;
     }
 
-    public void demitir() {
-        this.contratado = false;
-        empresa = null;
+    public String verificaEmpregado(Empresa empresa) {
+        if(empresa != null) {
+            return empresa.toString();
+        }
+        else {
+            return "Não está empregado";
+        }
+    }
+
+    public String verificaImposto(){
+        if(calcularSalario() > SALARIO_IMPOSTO) {
+            return "Este funcionário deverá pagar: R$" + String.format("%.2f", calcularImposto()) + " de imposto.";
+        }
+        return "Este funcionário não deverá pagar impostos.";
     }
 
     public abstract double calcularSalario();
 
     @Override
     public String toString(){
-        return "Funcionario: " + nome + "\nCpf: " + cpf + "\nIdade: " + idade + "Contratado: " + contratado + "\nEmpresa=" + empresa;
+        return nome + "\nCpf: " + cpf + "\nIdade: " + idade + "\nEmpresa: " + verificaEmpregado(empresa);
     }
 }

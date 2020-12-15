@@ -5,8 +5,8 @@ public class FuncionarioSemanal extends Funcionario {
     public FuncionarioSemanal(){
     }
 
-    public FuncionarioSemanal(String cpf, String nome, int idade, boolean contratado, double salarioSemanal){
-        super(cpf, nome, idade, contratado);
+    public FuncionarioSemanal(String cpf, String nome, int idade, double salarioSemanal){
+        super(cpf, nome, idade);
         this.salarioSemanal = salarioSemanal;
     }
 
@@ -20,16 +20,16 @@ public class FuncionarioSemanal extends Funcionario {
 
     @Override
     public double calcularSalario(){
-        return 0;
+        return getSalarioSemanal();
     }
 
     @Override
     public double calcularImposto(){
-        return 0;
+        return calcularSalario() * TAXA;
     }
 
     @Override
     public String toString(){
-        return "Funcionario Semanal: " + super.toString() + "\nSalario por semana: " + getSalarioSemanal();
+        return "Funcionario Semanal: " + super.toString();
     }
 }

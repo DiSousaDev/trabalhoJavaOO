@@ -42,6 +42,6 @@ public class Empresa {
 
     @Override
     public String toString(){
-        return "Cnpj" + cnpj + "\nNome=" + nome + "\nFuncionarios" + getFuncionarios();
+        return nome + " Cnpj: " + cnpj;
     }
 }
