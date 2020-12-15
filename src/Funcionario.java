@@ -71,6 +71,7 @@ public abstract class Funcionario implements ImpostoDeRenda {
         return "Este funcionário não deverá pagar impostos.";
     }
 
+    //metodo abstrato obriga as classes filhas a sobrescreverem o metodo
     public abstract double calcularSalario();
 
     @Override
